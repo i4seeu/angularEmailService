@@ -12,7 +12,7 @@ export class AppComponent {
   ngOnInit() { } 
   
   onClickSubmit(data) {
-    this.messageservice.sendMessage(data.subject);
+    this.messageservice.sendMessage(data);
     //alert("message : " + data.message); 
   }
 }

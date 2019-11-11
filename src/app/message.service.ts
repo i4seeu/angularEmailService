@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class MessageService {
   constructor(private _http: HttpClient) {}
   sendMessage(body) {
-    alert(body);
-    //return this._http.post('http://localhost:3000/sendmail', body);
+    //alert(body);
+    return this._http.post('http://localhost:5000/sendmail', body);
   }
 }
