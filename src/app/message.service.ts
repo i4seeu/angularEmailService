@@ -12,8 +12,9 @@ export class MessageService {
       'Content-Type': 'application/json'
     })
   }
-   console.log(body);
+  // console.log(body);
     let url = 'http://localhost:5000/sendmail/';
+    // send the data to theb node server
     return this.http.post(url, body,httpOptions).subscribe(
       data => console.log('success', data),
       error => console.log('oops', error)
