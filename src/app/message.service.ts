@@ -1,12 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
-  constructor(private _http: HttpClient) {}
+  constructor(private http: HttpClient) {}
   sendMessage(body) {
-    //alert(body);
-    return this._http.post('http://localhost:5000/sendmail', body);
+    //alert(body.subject);
+  let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+   console.log(body);
+    let url = 'http://localhost:5000/sendmail/';
+    return this.http.post(url, body,httpOptions).subscribe(
+      data => console.log('success', data),
+      error => console.log('oops', error)
+    );
   }
 }
